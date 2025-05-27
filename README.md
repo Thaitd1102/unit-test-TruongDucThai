@@ -78,14 +78,18 @@ Khi chạy mvn test ban đầu, coverage chỉ đạt 92% do bỏ sót branch sc
 ✅ Cách khắc phục:
 
 Thêm kiểm thử null trong file StudentAnalyzerTest.java:
+ ```bash
 @Test
 public void testNullInput() {
     StudentAnalyzer analyzer = new StudentAnalyzer();
     assertEquals(0, analyzer.countExcellentStudents(null));
     assertEquals(0.0, analyzer.calculateValidAverage(null));
 }
+  ```
 Commit kèm Issue để tự động đóng:
+```bash
 git commit -m "test: add test for null input to fix #5"
+ ```
 ✅ Kết quả: Coverage đã tăng lên 100%.
 ## Lưu ý
 
