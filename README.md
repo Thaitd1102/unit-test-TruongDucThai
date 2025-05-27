@@ -59,7 +59,7 @@ Chạy toàn bộ test unit:
 ```bash
 mvn test
 ```
-## Đo kiểm thử (Coverage)
+### Đo kiểm thử (Coverage)
 
 - Sử dụng plugin **JaCoCo** để đo độ bao phủ kiểm thử.
 - Chạy lệnh:
@@ -86,11 +86,11 @@ Commit kèm Issue để tự động đóng:
 git commit -m "test: add test for null input to fix #5"
 ✅ Kết quả: Coverage đã tăng lên 100%.
 
-## Lưu ý
+### Lưu ý
 
 - Các điểm số không hợp lệ (<0 hoặc >10) sẽ bị bỏ qua.
 - Nếu danh sách điểm trống hoặc null, kết quả trả về là 0.
 
-## License
+### License
 
 Dự án này mã nguồn mở, có thể sử dụng tự do.
