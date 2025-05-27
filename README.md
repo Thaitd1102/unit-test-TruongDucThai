@@ -4,6 +4,7 @@
 
 ## Cấu trúc dự án
 
+```
 StudentAnalyzerProject/
 ├── src/
 │   ├── main/
@@ -16,7 +17,7 @@ StudentAnalyzerProject/
 │               └── StudentAnalyzerTest.java
 ├── pom.xml
 └── README.md
-
+```
 
 ## Tính năng
 
@@ -39,59 +40,58 @@ StudentAnalyzerProject/
 1. Mở terminal, vào thư mục gốc dự án.
 2. Biên dịch:
 
-   
-bash
+   ```bash
    mvn compile
-
+   ```
 
 3. Chạy chương trình chính:
 
-   
-bash
+   ```bash
    mvn exec:java -Dexec.mainClass="com.example.studentanalyzer.StudentAnalyzer"
+   ```
 
-
-Hoặc chạy trực tiếp phương thức main trong VS Code.
+Hoặc chạy trực tiếp phương thức `main` trong VS Code.
 
 ### Chạy test
 
 Chạy toàn bộ test unit:
 
-bash
+```bash
 mvn test
+```
+## Đo kiểm thử (Coverage)
+Dự án sử dụng JaCoCo để đo độ bao phủ kiểm thử:
 
-### Đo kiểm thử (Coverage)
-
-- Sử dụng plugin **JaCoCo** để đo độ bao phủ kiểm thử.
-- Chạy lệnh:
-
-bash
+Chạy:
 mvn clean test
-Kết quả báo cáo: mở file: target/site/jacoco/index.html
-Coverage đạt: 100%
+
+Mở báo cáo coverage: target/site/jacoco/index.html
+
+Kết quả hiện tại: 100% coverage
 ## Các lỗi phát hiện và khắc phục
 ✅ Lỗi phát hiện:
-Thiếu kiểm thử với tham số đầu vào null trong các phương thức.
-Khi chạy mvn test ban đầu, coverage chỉ đạt 92% do bỏ sót branch scores == null.
-✅ Cách khắc phục:
-Thêm kiểm thử null trong file StudentAnalyzerTest.java:
 
+Thiếu kiểm thử với tham số đầu vào null trong các phương thức.
+
+Khi chạy mvn test ban đầu, coverage chỉ đạt 92% do bỏ sót branch scores == null.
+
+✅ Cách khắc phục:
+
+Thêm kiểm thử null trong file StudentAnalyzerTest.java:
 @Test
 public void testNullInput() {
     StudentAnalyzer analyzer = new StudentAnalyzer();
     assertEquals(0, analyzer.countExcellentStudents(null));
     assertEquals(0.0, analyzer.calculateValidAverage(null));
 }
-
 Commit kèm Issue để tự động đóng:
 git commit -m "test: add test for null input to fix #5"
 ✅ Kết quả: Coverage đã tăng lên 100%.
-
-### Lưu ý
+## Lưu ý
 
 - Các điểm số không hợp lệ (<0 hoặc >10) sẽ bị bỏ qua.
 - Nếu danh sách điểm trống hoặc null, kết quả trả về là 0.
 
-### License
+## License
 
 Dự án này mã nguồn mở, có thể sử dụng tự do.
